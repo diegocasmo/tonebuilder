@@ -6,3 +6,58 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id             String           @id @default(cuid())
+  email          String           @unique
+  emailVerified  DateTime?        @map("email_verified") @db.Timestamptz
+  createdAt      DateTime         @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt      DateTime?        @updatedAt @map("updated_at") @db.Timestamptz
+  TeamMembership TeamMembership[]
+
+  @@map("users")
+}
+
+model VerificationToken {
+  id         String    @id @default(cuid())
+  identifier String
+  token      String    @unique
+  expires    DateTime  @db.Timestamptz
+  createdAt  DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt  DateTime? @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@unique([identifier, token])
+  @@index([identifier, expires])
+  @@map("verification_tokens")
+}
+
+model Team {
+  id        String    @id @default(cuid())
+  name      String
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamptz
+
+  teamMemberships TeamMembership[]
+
+  @@map("teams")
+}
+
+model TeamMembership {
+  id        String             @id @default(cuid())
+  userId    String             @map("user_id")
+  teamId    String             @map("team_id")
+  role      TeamMembershipRole @default(OWNER)
+  createdAt DateTime           @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime?          @updatedAt @map("updated_at") @db.Timestamptz
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  team Team @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, teamId])
+  @@index([userId, role])
+  @@map("user_teams")
+}
+
+enum TeamMembershipRole {
+  OWNER
+}
