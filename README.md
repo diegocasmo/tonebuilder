@@ -21,7 +21,7 @@ asdf install
 4. Install dependencies
 
 ``` bash
-npm ci
+npm install
 ```
 
 5. Set up the environment variables:
@@ -43,7 +43,7 @@ npm run db:generate
 
 These commands will set up your database schema, apply all existing migrations, and populate the database with seed data.
 
-7. Start the development server 🚀 
+7. Start the development server 🚀
 
 ``` bash
 npm run dev
