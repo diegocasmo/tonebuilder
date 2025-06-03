@@ -18,7 +18,26 @@ asdf plugin add nodejs
 asdf install
 ```
 
-4. Install dependencies and start the development server
+4. Set up the environment variables:
+- Copy the `.env.example` file to `.env`
+- Open the `.env` file and fill in the necessary environment variables, including your PostgreSQL database URL
+
+5. Set up Prisma and the database:
+- Generate Prisma client:
+
+``` bash
+npm run db:generate
+```
+
+- Run migrations and seed initial data:
+
+``` bash
+npm run db:migrate
+```
+
+These commands will set up your database schema, apply all existing migrations, and populate the database with seed data.
+
+6. Install dependencies and start the development server
 
 ``` bash
 npm ci
