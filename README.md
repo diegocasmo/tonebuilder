@@ -1,9 +1,6 @@
-# ToneBuilder
+# [https://tonebuilder.ai/](https://tonebuilder.ai/)
 
-
-[https://tonebuilder.ai/](https://tonebuilder.ai/)
-
-Small wins. Big progress.
+AI-powered chat-based tone architect for modeling multi-effects
 
 ## Installation
 
