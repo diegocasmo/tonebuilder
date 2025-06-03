@@ -1,6 +1,6 @@
 # [https://tonebuilder.ai/](https://tonebuilder.ai/)
 
-AI-powered chat-based tone architect for modeling multi-effects
+An AI-powered, chat-based tone architect that helps musicians create presets for any multi-effects processor.
 
 ## Installation
 
