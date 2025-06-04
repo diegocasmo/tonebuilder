@@ -25,7 +25,7 @@ export default async function SignInPage() {
         </CardTitle>
         <CardDescription className="text-center">
           AI-powered, chat-based tone architect that helps musicians create
-          presets for any multi-effects processor Small wins. Big progress.
+          presets for any multi-effects processor.
         </CardDescription>
       </CardHeader>
       <CardContent>
