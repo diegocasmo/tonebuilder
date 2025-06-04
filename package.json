@@ -16,9 +16,7 @@
     "db:studio": "prisma studio",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "test:db:setup": "NODE_ENV=test DATABASE_URL=$TEST_DATABASE_URL npx prisma migrate deploy && npx prisma generate",
-    "test:db:reset": "NODE_ENV=test DATABASE_URL=$TEST_DATABASE_URL npx prisma migrate reset --force"
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.9.1",
