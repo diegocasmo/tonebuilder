@@ -37,11 +37,3 @@ export async function createTestTeamMembership(params: {
     },
   });
 }
-
-export async function cleanupTestData(): Promise<void> {
-  await prisma.$transaction([
-    prisma.teamMembership.deleteMany({}),
-    prisma.team.deleteMany({}),
-    prisma.user.deleteMany({}),
-  ]);
-}
