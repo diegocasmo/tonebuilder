@@ -1,4 +1,4 @@
-import { findOrCreateDefaultTeam } from '../find-or-create-default-team';
+import { findOrCreateDefaultTeam } from './find-or-create-default-team';
 import {
   createTestUser,
   createTestTeam,
