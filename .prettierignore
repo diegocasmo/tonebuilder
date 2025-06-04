@@ -1,0 +1,30 @@
+# Build outputs
+.next/
+out/
+dist/
+build/
+
+# Dependencies
+node_modules/
+
+# Generated files
+*.min.js
+*.min.css
+
+# Logs
+*.log
+
+# Database
+*.db
+*.sqlite
+
+# Environment files
+.env*
+
+# Generated Prisma client
+src/generated/
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml 
