@@ -16,9 +16,7 @@
     "db:studio": "prisma studio",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "test:db": "NODE_ENV=test npx tsx src/test/verify-db-url.ts",
-    "dev:db": "npx tsx src/test/verify-db-url.ts"
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.9.1",

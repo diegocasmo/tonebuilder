@@ -1,9 +1,10 @@
 import { prisma } from '@/lib/prisma/index';
-import { User, Team, TeamMembershipRole } from '@prisma/client';
+import { User, Team, TeamMembership, TeamMembershipRole } from '@prisma/client';
 
 export async function createTestUser(
-  email: string = 'test@example.com'
+  params: { email?: string } = {}
 ): Promise<User> {
+  const { email = 'test@example.com' } = params;
   return await prisma.user.create({
     data: {
       email,
@@ -12,8 +13,9 @@ export async function createTestUser(
 }
 
 export async function createTestTeam(
-  name: string = 'Test Team'
+  params: { name?: string } = {}
 ): Promise<Team> {
+  const { name = 'Test Team' } = params;
   return await prisma.team.create({
     data: {
       name,
@@ -21,19 +23,25 @@ export async function createTestTeam(
   });
 }
 
-export async function createTestTeamMembership(userId: string, teamId: string) {
+export async function createTestTeamMembership(params: {
+  userId: string;
+  teamId: string;
+  role?: TeamMembershipRole;
+}): Promise<TeamMembership> {
+  const { userId, teamId, role = TeamMembershipRole.OWNER } = params;
   return await prisma.teamMembership.create({
     data: {
       userId,
       teamId,
-      role: TeamMembershipRole.OWNER,
+      role,
     },
   });
 }
 
 export async function cleanupTestData(): Promise<void> {
-  // Clean up in reverse order of dependencies
-  await prisma.teamMembership.deleteMany({});
-  await prisma.team.deleteMany({});
-  await prisma.user.deleteMany({});
+  await prisma.$transaction([
+    prisma.teamMembership.deleteMany({}),
+    prisma.team.deleteMany({}),
+    prisma.user.deleteMany({}),
+  ]);
 }

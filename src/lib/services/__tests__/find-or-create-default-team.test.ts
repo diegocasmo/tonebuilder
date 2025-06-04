@@ -22,7 +22,7 @@ describe('findOrCreateDefaultTeam', () => {
     it('should create a new team with the user as owner', async () => {
       // Arrange
       const testEmail = 'john.doe@example.com';
-      const user = await createTestUser(testEmail);
+      const user = await createTestUser({ email: testEmail });
 
       // Act
       const result = await findOrCreateDefaultTeam(user.id);
@@ -46,7 +46,7 @@ describe('findOrCreateDefaultTeam', () => {
     it('should create team name correctly from email with uppercase first letter', async () => {
       // Arrange
       const testEmail = 'alice.smith@company.com';
-      const user = await createTestUser(testEmail);
+      const user = await createTestUser({ email: testEmail });
 
       // Act
       const result = await findOrCreateDefaultTeam(user.id);
@@ -58,7 +58,7 @@ describe('findOrCreateDefaultTeam', () => {
     it('should handle email with single character username', async () => {
       // Arrange
       const testEmail = 'a@example.com';
-      const user = await createTestUser(testEmail);
+      const user = await createTestUser({ email: testEmail });
 
       // Act
       const result = await findOrCreateDefaultTeam(user.id);
@@ -70,7 +70,7 @@ describe('findOrCreateDefaultTeam', () => {
     it('should handle email with complex username', async () => {
       // Arrange
       const testEmail = 'test-user_123@example.com';
-      const user = await createTestUser(testEmail);
+      const user = await createTestUser({ email: testEmail });
 
       // Act
       const result = await findOrCreateDefaultTeam(user.id);
@@ -83,9 +83,12 @@ describe('findOrCreateDefaultTeam', () => {
   describe('when user exists and already has a team', () => {
     it('should return the existing team', async () => {
       // Arrange
-      const user = await createTestUser('existing@example.com');
-      const existingTeam = await createTestTeam('Existing Team');
-      await createTestTeamMembership(user.id, existingTeam.id);
+      const user = await createTestUser({ email: 'existing@example.com' });
+      const existingTeam = await createTestTeam({ name: 'Existing Team' });
+      await createTestTeamMembership({
+        userId: user.id,
+        teamId: existingTeam.id,
+      });
 
       // Act
       const result = await findOrCreateDefaultTeam(user.id);
@@ -102,12 +105,15 @@ describe('findOrCreateDefaultTeam', () => {
 
     it('should return the first team if user belongs to multiple teams', async () => {
       // Arrange
-      const user = await createTestUser('multiuser@example.com');
-      const firstTeam = await createTestTeam('First Team');
-      const secondTeam = await createTestTeam('Second Team');
+      const user = await createTestUser({ email: 'multiuser@example.com' });
+      const firstTeam = await createTestTeam({ name: 'First Team' });
+      const secondTeam = await createTestTeam({ name: 'Second Team' });
 
-      await createTestTeamMembership(user.id, firstTeam.id);
-      await createTestTeamMembership(user.id, secondTeam.id);
+      await createTestTeamMembership({ userId: user.id, teamId: firstTeam.id });
+      await createTestTeamMembership({
+        userId: user.id,
+        teamId: secondTeam.id,
+      });
 
       // Act
       const result = await findOrCreateDefaultTeam(user.id);
