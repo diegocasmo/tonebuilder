@@ -20,14 +20,11 @@ describe('findOrCreateDefaultTeam', () => {
 
   describe('when user exists but has no team', () => {
     it('should create a new team with the user as owner', async () => {
-      // Arrange
       const testEmail = 'john.doe@example.com';
       const user = await createTestUser({ email: testEmail });
 
-      // Act
       const result = await findOrCreateDefaultTeam(user.id);
 
-      // Assert
       expect(result).toBeDefined();
       expect(result.name).toBe("John.doe's Team");
 
@@ -44,45 +41,35 @@ describe('findOrCreateDefaultTeam', () => {
     });
 
     it('should create team name correctly from email with uppercase first letter', async () => {
-      // Arrange
       const testEmail = 'alice.smith@company.com';
       const user = await createTestUser({ email: testEmail });
 
-      // Act
       const result = await findOrCreateDefaultTeam(user.id);
 
-      // Assert
       expect(result.name).toBe("Alice.smith's Team");
     });
 
     it('should handle email with single character username', async () => {
-      // Arrange
       const testEmail = 'a@example.com';
       const user = await createTestUser({ email: testEmail });
 
-      // Act
       const result = await findOrCreateDefaultTeam(user.id);
 
-      // Assert
       expect(result.name).toBe("A's Team");
     });
 
     it('should handle email with complex username', async () => {
-      // Arrange
       const testEmail = 'test-user_123@example.com';
       const user = await createTestUser({ email: testEmail });
 
-      // Act
       const result = await findOrCreateDefaultTeam(user.id);
 
-      // Assert
       expect(result.name).toBe("Test-user_123's Team");
     });
   });
 
   describe('when user exists and already has a team', () => {
     it('should return the existing team', async () => {
-      // Arrange
       const user = await createTestUser({ email: 'existing@example.com' });
       const existingTeam = await createTestTeam({ name: 'Existing Team' });
       await createTestTeamMembership({
@@ -90,10 +77,8 @@ describe('findOrCreateDefaultTeam', () => {
         teamId: existingTeam.id,
       });
 
-      // Act
       const result = await findOrCreateDefaultTeam(user.id);
 
-      // Assert
       expect(result).toBeDefined();
       expect(result.id).toBe(existingTeam.id);
       expect(result.name).toBe('Existing Team');
@@ -104,7 +89,6 @@ describe('findOrCreateDefaultTeam', () => {
     });
 
     it('should return the first team if user belongs to multiple teams', async () => {
-      // Arrange
       const user = await createTestUser({ email: 'multiuser@example.com' });
       const firstTeam = await createTestTeam({ name: 'First Team' });
       const secondTeam = await createTestTeam({ name: 'Second Team' });
@@ -115,10 +99,8 @@ describe('findOrCreateDefaultTeam', () => {
         teamId: secondTeam.id,
       });
 
-      // Act
       const result = await findOrCreateDefaultTeam(user.id);
 
-      // Assert
       expect(result).toBeDefined();
       expect([firstTeam.id, secondTeam.id]).toContain(result.id);
 
@@ -140,7 +122,6 @@ describe('findOrCreateDefaultTeam', () => {
         .fn()
         .mockRejectedValue(new Error('Database connection failed'));
 
-      // Act & Assert
       await expect(findOrCreateDefaultTeam('any-user-id')).rejects.toThrow(
         'Database connection failed'
       );
