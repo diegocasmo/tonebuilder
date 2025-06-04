@@ -77,6 +77,7 @@ export function SignInForm() {
   const handleBack = () => {
     setStep('email');
     form.setValue('otp', '');
+    form.clearErrors();
   };
 
   return (
