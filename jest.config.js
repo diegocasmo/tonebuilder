@@ -3,7 +3,7 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   roots: ['<rootDir>/src'],
-  testMatch: ['**/__tests__/**/*.ts', '**/?(*.)+(spec|test).ts'],
+  testMatch: ['**/*.test.ts'],
   transform: {
     '^.+\\.ts$': 'ts-jest',
   },
@@ -13,6 +13,11 @@ module.exports = {
   setupFiles: ['<rootDir>/src/test/jest-setup.ts'],
   setupFilesAfterEnv: ['<rootDir>/src/test/setup.ts'],
   clearMocks: true,
-  collectCoverageFrom: ['src/**/*.ts', '!src/**/*.d.ts', '!src/test/**/*'],
+  collectCoverageFrom: [
+    'src/**/*.ts',
+    '!src/**/*.d.ts',
+    '!src/**/*.test.ts',
+    '!src/test/**/*',
+  ],
   moduleFileExtensions: ['ts', 'js', 'json'],
 };
