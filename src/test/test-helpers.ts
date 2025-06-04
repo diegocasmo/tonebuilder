@@ -1,5 +1,11 @@
 import { prisma } from '@/lib/prisma/index';
-import { User, Team, TeamMembership, TeamMembershipRole } from '@prisma/client';
+import {
+  User,
+  Team,
+  TeamMembership,
+  TeamMembershipRole,
+  VerificationToken,
+} from '@prisma/client';
 
 export async function createTestUser(
   params: { email?: string } = {}
@@ -34,6 +40,25 @@ export async function createTestTeamMembership(params: {
       userId,
       teamId,
       role,
+    },
+  });
+}
+
+export async function createTestVerificationToken(params: {
+  identifier: string;
+  token: string;
+  expires?: Date;
+}): Promise<VerificationToken> {
+  const {
+    identifier,
+    token,
+    expires = new Date(Date.now() + 10 * 60 * 1000),
+  } = params; // Default: 10 minutes from now
+  return await prisma.verificationToken.create({
+    data: {
+      identifier,
+      token,
+      expires,
     },
   });
 }
