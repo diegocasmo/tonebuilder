@@ -13,7 +13,12 @@
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:db": "NODE_ENV=test npx tsx src/test/verify-db-url.ts",
+    "dev:db": "npx tsx src/test/verify-db-url.ts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.9.1",
@@ -36,15 +41,20 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/jest": "^29.5.14",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
     "eslint-config-prettier": "^10.1.5",
+    "jest": "^29.7.0",
+    "jest-environment-node": "^30.0.0-beta.3",
     "prettier": "^3.5.3",
     "prisma": "^6.9.0",
     "tailwindcss": "^4",
+    "ts-jest": "^29.3.4",
+    "tsx": "^4.19.4",
     "tw-animate-css": "^1.3.3",
     "typescript": "^5"
   }
