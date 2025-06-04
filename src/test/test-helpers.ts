@@ -52,8 +52,9 @@ export async function createTestVerificationToken(params: {
   const {
     identifier,
     token,
+    // Default: 10 minutes from now
     expires = new Date(Date.now() + 10 * 60 * 1000),
-  } = params; // Default: 10 minutes from now
+  } = params;
   return await prisma.verificationToken.create({
     data: {
       identifier,
