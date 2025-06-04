@@ -7,8 +7,9 @@ const globalForPrisma = globalThis as unknown as {
 // Use TEST_DATABASE_URL for test environment, otherwise use DATABASE_URL
 const getDatabaseUrl = () => {
   if (process.env.NODE_ENV === 'test') {
-    return process.env.TEST_DATABASE_URL || process.env.DATABASE_URL;
+    return process.env.TEST_DATABASE_URL;
   }
+
   return process.env.DATABASE_URL;
 };
 
