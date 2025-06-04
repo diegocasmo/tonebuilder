@@ -18,6 +18,5 @@ export function validateTestEnvironment(): void {
     );
   }
 
-  // All validations passed
   console.log('✅ Test environment validation completed successfully');
 }
