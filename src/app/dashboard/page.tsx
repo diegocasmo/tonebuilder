@@ -8,6 +8,5 @@ export default async function DashboardPage() {
     redirect('/auth/sign-in');
   }
 
-  // To-do: add <Suspense/>
   return <span>Welcome, {session.user.email}</span>;
 }
