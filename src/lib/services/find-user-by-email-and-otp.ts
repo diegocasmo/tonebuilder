@@ -7,11 +7,24 @@ export async function findUserByEmailAndOtp(
 ): Promise<User | null> {
   try {
     return prisma.$transaction(async (tx) => {
-      await prisma.verificationToken.delete({
+      // First check if the verification token exists and is valid
+      const verificationToken = await tx.verificationToken.findFirst({
         where: {
           identifier: email,
           token: otp,
           expires: { gt: new Date() },
+        },
+      });
+
+      // If no valid token found, return null
+      if (!verificationToken) {
+        return null;
+      }
+
+      // Delete the verification token
+      await tx.verificationToken.delete({
+        where: {
+          id: verificationToken.id,
         },
       });
 
