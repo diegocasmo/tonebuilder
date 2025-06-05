@@ -57,6 +57,73 @@ model TeamMembership {
   @@map("user_teams")
 }
 
+model Effect {
+  id          String            @id @default(cuid())
+  name        String
+  category    EffectCategory
+  subcategory EffectSubcategory
+  description String?
+  createdAt   DateTime          @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt   DateTime?         @updatedAt @map("updated_at") @db.Timestamptz
+
+  parameters EffectParameter[]
+
+  @@unique([name, category, subcategory])
+  @@index([category, subcategory])
+  @@map("effects")
+}
+
+model EffectParameter {
+  id       String              @id @default(cuid())
+  effectId String              @map("effect_id")
+  name     String
+  type     EffectParameterType
+
+  // Continuous-only fields
+  minValue     Float? @map("min_value")
+  maxValue     Float? @map("max_value")
+  stepValue    Float? @map("step_value")
+  defaultValue Float? @map("default_value")
+
+  // Discrete-only fields
+  options       String[]
+  defaultOption String?  @map("default_option")
+
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamptz
+
+  effect Effect @relation(fields: [effectId], references: [id], onDelete: Cascade)
+
+  @@unique([effectId, name])
+  @@map("effect_parameters")
+}
+
 enum TeamMembershipRole {
   OWNER
+}
+
+enum EffectCategory {
+  DISTORTION
+  DYNAMICS
+  EQ
+  MODULATION
+  DELAY
+  REVERB
+  PITCH_SYNTH
+  FILTER
+  WAH
+  AMP_WITH_CAB
+}
+
+enum EffectSubcategory {
+  MONO
+  STEREO
+  LEGACY
+  GUITAR
+  BASS
+}
+
+enum EffectParameterType {
+  CONTINUOUS
+  DISCRETE
 }
