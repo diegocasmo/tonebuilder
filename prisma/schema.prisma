@@ -61,7 +61,7 @@ enum TeamMembershipRole {
   OWNER
 }
 
-enum Category {
+enum EffectCategory {
   DISTORTION
   DYNAMICS
   EQ
@@ -74,7 +74,7 @@ enum Category {
   AMP_WITH_CAB
 }
 
-enum Subcategory {
+enum EffectSubcategory {
   MONO
   STEREO
   LEGACY
@@ -82,19 +82,19 @@ enum Subcategory {
   BASS
 }
 
-enum ParamType {
+enum EffectParameterType {
   CONTINUOUS
   DISCRETE
 }
 
 model Effect {
-  id          String      @id @default(cuid())
+  id          String            @id @default(cuid())
   name        String
-  category    Category
-  subcategory Subcategory
+  category    EffectCategory
+  subcategory EffectSubcategory
   description String?
-  createdAt   DateTime    @default(now()) @map("created_at") @db.Timestamptz
-  updatedAt   DateTime?   @updatedAt @map("updated_at") @db.Timestamptz
+  createdAt   DateTime          @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt   DateTime?         @updatedAt @map("updated_at") @db.Timestamptz
 
   parameters EffectParameter[]
 
@@ -104,10 +104,10 @@ model Effect {
 }
 
 model EffectParameter {
-  id        String    @id @default(cuid())
-  effectId  String    @map("effect_id")
-  name      String
-  paramType ParamType @map("param_type")
+  id       String              @id @default(cuid())
+  effectId String              @map("effect_id")
+  name     String
+  type     EffectParameterType
 
   // Continuous-only fields
   minValue     Float? @map("min_value")
