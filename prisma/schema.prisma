@@ -57,36 +57,6 @@ model TeamMembership {
   @@map("user_teams")
 }
 
-enum TeamMembershipRole {
-  OWNER
-}
-
-enum EffectCategory {
-  DISTORTION
-  DYNAMICS
-  EQ
-  MODULATION
-  DELAY
-  REVERB
-  PITCH_SYNTH
-  FILTER
-  WAH
-  AMP_WITH_CAB
-}
-
-enum EffectSubcategory {
-  MONO
-  STEREO
-  LEGACY
-  GUITAR
-  BASS
-}
-
-enum EffectParameterType {
-  CONTINUOUS
-  DISCRETE
-}
-
 model Effect {
   id          String            @id @default(cuid())
   name        String
@@ -126,4 +96,34 @@ model EffectParameter {
 
   @@unique([effectId, name])
   @@map("effect_parameters")
+}
+
+enum TeamMembershipRole {
+  OWNER
+}
+
+enum EffectCategory {
+  DISTORTION
+  DYNAMICS
+  EQ
+  MODULATION
+  DELAY
+  REVERB
+  PITCH_SYNTH
+  FILTER
+  WAH
+  AMP_WITH_CAB
+}
+
+enum EffectSubcategory {
+  MONO
+  STEREO
+  LEGACY
+  GUITAR
+  BASS
+}
+
+enum EffectParameterType {
+  CONTINUOUS
+  DISCRETE
 }
