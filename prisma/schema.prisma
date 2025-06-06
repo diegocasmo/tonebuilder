@@ -87,11 +87,11 @@ model EffectParameter {
 
   // Discrete-only fields
   options       String[]
-  defaultOption String?  @map("default_option")
+  defaultOption String?              @map("default_option")
+  unit          EffectParameterUnit?
 
-  unit      EffectParameterUnit?
-  createdAt DateTime             @default(now()) @map("created_at") @db.Timestamptz
-  updatedAt DateTime?            @updatedAt @map("updated_at") @db.Timestamptz
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamptz
 
   effect Effect @relation(fields: [effectId], references: [id], onDelete: Cascade)
 
