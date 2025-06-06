@@ -89,8 +89,9 @@ model EffectParameter {
   options       String[]
   defaultOption String?  @map("default_option")
 
-  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz
-  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamptz
+  unit      EffectParameterUnit?
+  createdAt DateTime             @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt DateTime?            @updatedAt @map("updated_at") @db.Timestamptz
 
   effect Effect @relation(fields: [effectId], references: [id], onDelete: Cascade)
 
@@ -126,4 +127,10 @@ enum EffectSubcategory {
 enum EffectParameterType {
   CONTINUOUS
   DISCRETE
+}
+
+enum EffectParameterUnit {
+  DECIBEL
+  MILLISECOND
+  PERCENTAGE
 }

@@ -1,11 +1,11 @@
 {
   "name": "Kinky Boost",
   "category": "DISTORTION",
-  "subCategory": "MONO",
+  "subcategory": "MONO",
   "description": "Compact and highly versatile boost pedal inspired by the preamp circuit of the legendary Maestro Echoplex EP-3, a tape delay unit famously used by guitarists like Jimmy Page, Eddie Van Halen, and Eric Johnson. Introduced by Xotic Effects, the pedal delivers up to +20dB of clean, multi-dimensional boost with shimmering highs and lows, making it a favorite for enhancing tone without adding distortion.",
   "parameters": [
     {
-      "name": "drive",
+      "name": "Drive",
       "type": "CONTINUOUS",
       "minValue": 0,
       "maxValue": 10.0,
@@ -13,13 +13,13 @@
       "defaultValue": 5.5
     },
     {
-      "name": "boost",
+      "name": "Boost",
       "type": "DISCRETE",
       "options": ["on", "off"],
       "defaultOption": "off"
     },
     {
-      "name": "bright",
+      "name": "Bright",
       "type": "DISCRETE",
       "options": ["on", "off"],
       "defaultOption": "off"
