@@ -62,7 +62,7 @@ model Effect {
   name        String
   category    EffectCategory
   subcategory EffectSubcategory
-  description String?
+  description String
   createdAt   DateTime          @default(now()) @map("created_at") @db.Timestamptz
   updatedAt   DateTime?         @updatedAt @map("updated_at") @db.Timestamptz
 
