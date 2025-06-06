@@ -37,10 +37,14 @@ npm install
 npm run db:generate
 ```
 
-- Run migrations and seed initial data:
+- Run migrations and sync initial effects data:
 
 ```bash
 npm run db:migrate
+```
+
+```bash
+npm run db:sync
 ```
 
 These commands will set up your database schema, apply all existing migrations, and populate the database with seed data.
