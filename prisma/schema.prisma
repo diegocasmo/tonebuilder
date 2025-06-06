@@ -62,7 +62,7 @@ model Effect {
   name        String
   category    EffectCategory
   subcategory EffectSubcategory
-  description String?
+  description String
   createdAt   DateTime          @default(now()) @map("created_at") @db.Timestamptz
   updatedAt   DateTime?         @updatedAt @map("updated_at") @db.Timestamptz
 
@@ -87,7 +87,8 @@ model EffectParameter {
 
   // Discrete-only fields
   options       String[]
-  defaultOption String?  @map("default_option")
+  defaultOption String?              @map("default_option")
+  unit          EffectParameterUnit?
 
   createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz
   updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamptz
@@ -126,4 +127,10 @@ enum EffectSubcategory {
 enum EffectParameterType {
   CONTINUOUS
   DISCRETE
+}
+
+enum EffectParameterUnit {
+  DECIBEL
+  MILLISECOND
+  PERCENTAGE
 }
