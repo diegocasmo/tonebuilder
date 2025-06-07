@@ -133,4 +133,5 @@ enum EffectParameterUnit {
   DECIBEL
   MILLISECOND
   PERCENTAGE
+  HERTZ
 }
