@@ -1,0 +1,35 @@
+{
+  "name": "Optical Trem",
+  "category": "MODULATION",
+  "subcategory": "MONO",
+  "description": "A smooth, vintage-style tremolo based on classic optical circuits. Delivers warm, pulsating volume modulation with an organic feel. Perfect for adding subtle movement or deep, rhythmic swells to clean or slightly driven tones.",
+  "parameters": [
+    {
+      "name": "Speed",
+      "type": "CONTINUOUS",
+      "minValue": 0.0,
+      "maxValue": 10.0,
+      "stepValue": 0.1,
+      "defaultValue": 6.6,
+      "unit": "UNITLESS"
+    },
+    {
+      "name": "Intnsty",
+      "type": "CONTINUOUS",
+      "minValue": 0.0,
+      "maxValue": 10.0,
+      "stepValue": 0.1,
+      "defaultValue": 6.7,
+      "unit": "UNITLESS"
+    },
+    {
+      "name": "Level",
+      "type": "CONTINUOUS",
+      "minValue": -60.0,
+      "maxValue": 6.0,
+      "stepValue": 0.1,
+      "defaultValue": 0.0,
+      "unit": "DECIBEL"
+    }
+  ]
+}

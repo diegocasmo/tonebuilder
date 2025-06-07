@@ -1,0 +1,51 @@
+{
+  "name": "Simple Delay",
+  "category": "DELAY",
+  "subcategory": "MONO",
+  "description": "A straightforward digital delay with clear, clean repeats and minimal coloration. Features basic controls for time, feedback, and mix, making it easy to dial in slapback echoes, rhythmic repeats, or ambient layers without complexity. Great for versatile, no-fuss delay needs.",
+  "parameters": [
+    {
+      "name": "Time",
+      "type": "CONTINUOUS",
+      "minValue": 0.0,
+      "maxValue": 8000,
+      "stepValue": 1,
+      "defaultValue": 600,
+      "unit": "MILLISECOND"
+    },
+    {
+      "name": "Feedbk",
+      "type": "CONTINUOUS",
+      "minValue": 0,
+      "maxValue": 100,
+      "stepValue": 1,
+      "defaultValue": 35,
+      "unit": "PERCENTAGE"
+    },
+    {
+      "name": "Mix",
+      "type": "CONTINUOUS",
+      "minValue": 0,
+      "maxValue": 100,
+      "stepValue": 1,
+      "defaultValue": 40,
+      "unit": "PERCENTAGE"
+    },
+    {
+      "name": "Level",
+      "type": "CONTINUOUS",
+      "minValue": -60.0,
+      "maxValue": 6.0,
+      "stepValue": 0.1,
+      "defaultValue": 0,
+      "unit": "DECIBEL"
+    },
+    {
+      "name": "Trails",
+      "type": "DISCRETE",
+      "options": ["On", "Off"],
+      "defaultOption": "Off",
+      "unit": "UNITLESS"
+    }
+  ]
+}

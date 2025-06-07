@@ -87,8 +87,8 @@ model EffectParameter {
 
   // Discrete-only fields
   options       String[]
-  defaultOption String?              @map("default_option")
-  unit          EffectParameterUnit?
+  defaultOption String?             @map("default_option")
+  unit          EffectParameterUnit
 
   createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz
   updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamptz
@@ -134,4 +134,7 @@ enum EffectParameterUnit {
   MILLISECOND
   PERCENTAGE
   HERTZ
+  UNITLESS
+  METER
+  SECOND
 }

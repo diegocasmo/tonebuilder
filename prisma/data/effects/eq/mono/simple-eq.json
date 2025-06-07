@@ -1,0 +1,53 @@
+{
+  "name": "Simple EQ",
+  "category": "EQ",
+  "subcategory": "MONO",
+  "description": "A clean, transparent 3-band equalizer designed for quick tone shaping. Useful for adjusting bass, mids, and treble without adding color. Ideal for balancing a preset or fine-tuning your sound before or after amp blocks.",
+  "parameters": [
+    {
+      "name": "LoGain",
+      "type": "CONTINUOUS",
+      "minValue": -12.0,
+      "maxValue": 12.0,
+      "stepValue": 0.1,
+      "defaultValue": 0.0,
+      "unit": "DECIBEL"
+    },
+    {
+      "name": "MidFreq",
+      "type": "CONTINUOUS",
+      "minValue": 125,
+      "maxValue": 4000,
+      "stepValue": 1,
+      "defaultValue": 600,
+      "unit": "HERTZ"
+    },
+    {
+      "name": "MidGain",
+      "type": "CONTINUOUS",
+      "minValue": -12.0,
+      "maxValue": 12.0,
+      "stepValue": 0.1,
+      "defaultValue": 0,
+      "unit": "DECIBEL"
+    },
+    {
+      "name": "HiGain",
+      "type": "CONTINUOUS",
+      "minValue": -12.0,
+      "maxValue": 12.0,
+      "stepValue": 0.1,
+      "defaultValue": 0,
+      "unit": "DECIBEL"
+    },
+    {
+      "name": "Level",
+      "type": "CONTINUOUS",
+      "minValue": -60.0,
+      "maxValue": 12.0,
+      "stepValue": 0.1,
+      "defaultValue": 0.0,
+      "unit": "DECIBEL"
+    }
+  ]
+}
