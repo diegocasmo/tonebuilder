@@ -41,7 +41,7 @@
       "unit": "DECIBEL"
     },
     {
-      "name": "LoGain",
+      "name": "Level",
       "type": "CONTINUOUS",
       "minValue": -60.0,
       "maxValue": 12.0,
