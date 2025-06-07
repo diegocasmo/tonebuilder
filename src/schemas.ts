@@ -18,7 +18,7 @@ const continuousParam = z.object({
   maxValue: z.number(),
   stepValue: z.number(),
   defaultValue: z.number(),
-  unit: EffectParameterUnitEnum.optional().nullable().default(null),
+  unit: EffectParameterUnitEnum,
 });
 
 const discreteParam = z.object({
@@ -26,7 +26,7 @@ const discreteParam = z.object({
   type: z.literal(EffectParameterType.DISCRETE),
   options: z.array(z.string().min(1)),
   defaultOption: z.string(),
-  unit: EffectParameterUnitEnum.optional().nullable().default(null),
+  unit: EffectParameterUnitEnum,
 });
 
 const effectParameterSchema = z.discriminatedUnion('type', [

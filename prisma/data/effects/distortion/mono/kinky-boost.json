@@ -10,19 +10,22 @@
       "minValue": 0,
       "maxValue": 10.0,
       "stepValue": 0.1,
-      "defaultValue": 5.5
+      "defaultValue": 5.5,
+      "unit": "UNITLESS"
     },
     {
       "name": "Boost",
       "type": "DISCRETE",
       "options": ["On", "Off"],
-      "defaultOption": "Off"
+      "defaultOption": "Off",
+      "unit": "UNITLESS"
     },
     {
       "name": "Bright",
       "type": "DISCRETE",
       "options": ["On", "Off"],
-      "defaultOption": "Off"
+      "defaultOption": "Off",
+      "unit": "UNITLESS"
     }
   ]
 }

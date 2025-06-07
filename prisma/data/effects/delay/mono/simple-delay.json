@@ -44,7 +44,8 @@
       "name": "Trails",
       "type": "DISCRETE",
       "options": ["On", "Off"],
-      "defaultOption": "Off"
+      "defaultOption": "Off",
+      "unit": "UNITLESS"
     }
   ]
 }

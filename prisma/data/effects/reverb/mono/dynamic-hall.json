@@ -1,0 +1,121 @@
+{
+  "name": "Dynamic Hall",
+  "category": "REVERB",
+  "subcategory": "MONO",
+  "description": "A lush, studio-style hall reverb with responsive dynamics. Tailors its depth and decay to your playing intensity—subtle when you play soft, expansive when you dig in. Ideal for ambient textures, clean swells, and expressive lead tones that breathe with your touch.",
+  "parameters": [
+    {
+      "name": "Decay",
+      "type": "CONTINUOUS",
+      "minValue": 0.1,
+      "maxValue": 45.0,
+      "stepValue": 0.1,
+      "defaultValue": 4.0,
+      "unit": "SECOND"
+    },
+    {
+      "name": "Predly",
+      "type": "CONTINUOUS",
+      "minValue": 0.0,
+      "maxValue": 200,
+      "stepValue": 1,
+      "defaultValue": 50,
+      "unit": "MILLISECOND"
+    },
+    {
+      "name": "Size",
+      "type": "DISCRETE",
+      "options": ["10", "20", "30"],
+      "defaultOption": "20",
+      "unit": "METER"
+    },
+    {
+      "name": "Diffusn",
+      "type": "CONTINUOUS",
+      "minValue": 0,
+      "maxValue": 100,
+      "stepValue": 1,
+      "defaultValue": 70,
+      "unit": "PERCENTAGE"
+    },
+    {
+      "name": "Dampng",
+      "type": "CONTINUOUS",
+      "minValue": 500,
+      "maxValue": 20000,
+      "stepValue": 100,
+      "defaultValue": 3700,
+      "unit": "HERTZ"
+    },
+    {
+      "name": "Mix",
+      "type": "CONTINUOUS",
+      "minValue": 0,
+      "maxValue": 100,
+      "stepValue": 1,
+      "defaultValue": 39,
+      "unit": "PERCENTAGE"
+    },
+    {
+      "name": "Motion",
+      "type": "CONTINUOUS",
+      "minValue": 0.0,
+      "maxValue": 10.0,
+      "stepValue": 0.1,
+      "defaultValue": 2.9,
+      "unit": "UNITLESS"
+    },
+    {
+      "name": "LoFreq",
+      "type": "CONTINUOUS",
+      "minValue": 20,
+      "maxValue": 500,
+      "stepValue": 1,
+      "defaultValue": 100,
+      "unit": "HERTZ"
+    },
+    {
+      "name": "LoGain",
+      "type": "CONTINUOUS",
+      "minValue": -15.0,
+      "maxValue": 3.0,
+      "stepValue": 0.1,
+      "defaultValue": 0.0,
+      "unit": "DECIBEL"
+    },
+    {
+      "name": "Low Cut",
+      "type": "CONTINUOUS",
+      "minValue": 20,
+      "maxValue": 1000,
+      "stepValue": 1,
+      "defaultValue": 117,
+      "unit": "HERTZ"
+    },
+    {
+      "name": "Hi Cut",
+      "type": "CONTINUOUS",
+      "minValue": 500,
+      "maxValue": 20000,
+      "stepValue": 1,
+      "defaultValue": 6300,
+      "unit": "HERTZ"
+    },
+    {
+      "name": "Level",
+      "type": "CONTINUOUS",
+      "minValue": -60.0,
+      "maxValue": 6.0,
+      "stepValue": 1,
+      "defaultValue": 0.0,
+      "unit": "DECIBEL"
+    },
+    {
+      "name": "Trails",
+      "type": "DISCRETE",
+      "options": ["On", "Off"],
+      "defaultOption": "Off",
+      "unit": "UNITLESS"
+    }
+  ]
+}
