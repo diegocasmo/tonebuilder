@@ -15,14 +15,14 @@
     {
       "name": "Boost",
       "type": "DISCRETE",
-      "options": ["on", "off"],
-      "defaultOption": "off"
+      "options": ["On", "Off"],
+      "defaultOption": "Off"
     },
     {
       "name": "Bright",
       "type": "DISCRETE",
-      "options": ["on", "off"],
-      "defaultOption": "off"
+      "options": ["On", "Off"],
+      "defaultOption": "Off"
     }
   ]
 }
