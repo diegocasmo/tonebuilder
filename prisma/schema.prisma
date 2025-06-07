@@ -134,4 +134,5 @@ enum EffectParameterUnit {
   MILLISECOND
   PERCENTAGE
   HERTZ
+  UNITLESS
 }
